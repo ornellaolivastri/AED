@@ -12,8 +12,8 @@
 ---
 ### Etapa 2: Diseño de la solucion
 - **Lexico**: a,b ϵ Z 
-#### Representaciones del algoritmo
-##### Textual: 
+### Representaciones del algoritmo
+#### Textual: 
 1. Leer a
 2. Almacenar a
 3. Leer b
@@ -22,7 +22,7 @@
 6. Almacenar c
 7. Mostrar c
 
-##### Visual:
+#### Visual:
 ![](diagrama%20de%20flujo.PNG)
 
 ---
