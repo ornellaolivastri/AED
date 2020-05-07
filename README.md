@@ -1,7 +1,4 @@
-# AED
+﻿# Algoritmos y Estructuras de Datos
 
-# Curso K1051
-# Año 2020
-# Legajo 1674201
-# Olivastri
-# Ornella
+# Alumno: Ornella Olivastri - Legajo 1674201
+# Curso K1051 - Año 2020
