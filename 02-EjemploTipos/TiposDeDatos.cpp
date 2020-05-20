@@ -11,7 +11,7 @@ Por lo tanto, imponen restricciones sobre qué valores y operaciones pueden real
 */
 
 /*Tipos de datos basicos en C++ vistos en clase:
-char - string - bool - int - unsigned - double 
+char - string - bool - int - unsigned - double - unsigned
 */
 
 //Bibliotecas
@@ -130,6 +130,15 @@ int main()
     std::cout << "Su division resulta: " << division2 << " y la potencia del primer flotante con numero negativo (por ejemplo -2) resulta: " << potencia2 << ".\n";
     assert(division2 == 2.5);
     assert(potencia2 == 0.04);
+    std::cout << '\n';
+   
+    //Tipo de dato unsigned: determina los tamaños que tendran los espacios donde se almacenaran los datos https://www.youtube.com/watch?v=VTI61rhTcLE
+    unsigned int noSignado1 = 0, noSignado2 = 5, noSignado3 = 429496967295;   //El noSignado3 es el maximo numero que puede ser almacenado en este tipo
+    std::cout << "Ejemplos de datos de tipo unsigned: " << noSignado1 << ", " << noSignado2 << " y " << noSignado3 << ".\n";
+    std::cout << "Las operaciones posibles seran la suma, la multiplicacion y la potenciacion (entre otras) pero operaciones como la resta ";
+    
+    
+    
     std::cout << '\n';
     //getch(); tambien se puede usar para dar una pausa antes de que termine el programa y que no se cierre tan rapido
     system("pause");
