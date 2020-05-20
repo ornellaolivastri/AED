@@ -36,32 +36,38 @@ int main()
          caracter3 = 'A', 
          caracter4 = '3';
     std::cout << "Ejemplos de datos de tipo char (caracter): " << caracter1 << ", " << caracter2 << ", " << caracter3 << " y " << caracter4 << ".\n";
-    //Operaciones que pueden efectuarse en este tipo: concatenacion, dar valor ascii    QUE FUNCION CONCATENA CHARS?
+    //Operaciones que pueden efectuarse en este tipo: concatenacion, dar valor ascii    
     std::cout << "Operaciones que pueden efectuarse en este tipo:" << '\n';
-    std::cout << "Valores ASCII de los caracteres ejemplo respectivamente: " << ascii(caracter1) << ", " << ascii(caracter2) << ", " << ascii(caracter3) << " y " << ascii(caracter4) << ".\n";
-
-    std::cout << "\n";
+    std::cout << "Valores ASCII de los caracteres ejemplo respectivamente: " << ascii(caracter1) << ", " << ascii(caracter2);
+    std::cout << ", " << ascii(caracter3) << " y " << ascii(caracter4) << ".\n";
+    assert(ascii(caracter1) == 38);
+    assert(ascii(caracter2) == 97);
+    assert(ascii(caracter3) == 65);
+    assert(ascii(caracter4) == 51);
+    //std::cout << "Concatenacion: " << caracter1 + caracter2 + caracter3 + caracter4 <<std::endl;  Esto no concatena, sino que suma los valores ascii de cada caracter
+    std::cout << "\n";                       //QUE FUNCION CONCATENA CHARS ?
 
     //Tipo de dato string: secuencias de caracteres
     //Aqui debí añadir la libreria <string> y llamar a la standar (std) para poder usar el string
     std::string cadena1 = ("cadena!"),
-        cadena2 = ("de-caracteres!");
+                cadena2 = ("de-caracteres!");
     std::cout << "Ejemplos de datos de tipo string (cadena): " << cadena1 << " y " << cadena2 << ".\n";
     
     //Operaciones que pueden efectuarse en este tipo: concatenacion, inversion
-
     /*Una opcion es usar la funcion strcat que concatena arrays de char y no strings.. no hay funcion que concatene cadenas?
     char cadena1[50] = "cadena!",
          cadena2[50] = "de caracteres!";
-    strcat(cadena1, cadena2); | strcat es una funcion que concatena dos cadenas y almacena la nueva cadena en donde estaba la primera
+
+    strcat(cadena1, cadena2);   |    strcat es una funcion que concatena dos cadenas y almacena la nueva cadena en donde estaba la primera
     std::cout << "Se pueden concatenar: " << cadena1 << std::endl; */
         
     std::cout << "Operaciones que pueden efectuarse en este tipo:" << '\n';
     std::cout << "Se pueden concatenar: " << cadena1 + cadena2 << ".\n";        //SE PODIAN CONCATENAR CON UNA SUMAAA
+    std::string concatenacion = cadena1 + cadena2;
     //std::cout << "Se puede saber la cantidad de caracteres que ocupa una cadena: " << cadena1.length() << ".\n";
     //strrev(cadena1);
     //std::cout << "Se pueden invertir (por ejemplo, la primer cadena): " << strrev(cadena1) << ". Esto puede ser util para comprobar si un numero es capicua, o si una palabra es polindroma. \n";
-
+    assert(concatenacion == "cadena!de-caracteres!");
     std::cout << "\n";
 
     //Tipo de dato bool: dos posibles valores (true or false, on or off, high or low)
@@ -83,7 +89,8 @@ int main()
     { 
         std::cout << "False \n"; 
     }
-
+    //assert(coche_avanza == "False \n");   Esta opcion no funciona porque los tipos de operando no son compatibles (bool y char) porque coche_avanza es de tipo bool dah
+    assert(coche_avanza == false);
     std::cout << "\n";
 
     //Tipo de dato int: un numero entero
@@ -102,9 +109,14 @@ int main()
     std::cout << "Se pueden multiplicar: " << multiplicacion << ".\n";
     std::cout << "Estas operaciones mencionadas son cerradas, lo cual indica que los resultados son del mismo tipo que los operandos.\n";
     std::cout << "Por ejemplo, en el caso de la division y la potenciacion, ciertos resultados no seran precisos, ya que estas operaciones no son cerradas en enteros.\n";
-    std::cout << "Su division resulta: " << division1 << " y la potencia del primer entero con numero negativo (por ejemplo -2) resulta: " << potencia1 << ". (No se estan mostrando los decimales).\n";
+    std::cout << "Su division resulta: " << division1 << " y la potencia del primer entero con numero negativo (por ejemplo -2) resulta: " << potencia1; 
+    std::cout << ". (No se estan mostrando los decimales).\n";
     std::cout << "Para efectuar correctamente esta operacion debemos usar el tipo de dato flotante double." << '\n';
-
+    assert(suma == 7);
+    assert(resta == 3);                       //Tuve que ponerle 1 a la division y a la potencia porque tuve que hacer la operacion tambien en doubles 
+    assert(multiplicacion == 10);             //entonces iba a repetirse el nombre de la variable
+    assert(division1 == 2);
+    assert(potencia1 == 0);
     std::cout << '\n';
 
     //Tipo de dato double: un numero de tipo flotante (enteros con valores entre 0 y 1)
@@ -116,7 +128,8 @@ int main()
     potencia2 = pow(flotante1, -2);
     std::cout << "Se pueden sumar, restar y multiplicar al igual que los enteros, pero a diferencia de ellos los resultados de divisiones y potencias siempre seran precisos.\n";
     std::cout << "Su division resulta: " << division2 << " y la potencia del primer flotante con numero negativo (por ejemplo -2) resulta: " << potencia2 << ".\n";
-   
+    assert(division2 == 2.5);
+    assert(potencia2 == 0.04);
     std::cout << '\n';
     //getch(); tambien se puede usar para dar una pausa antes de que termine el programa y que no se cierre tan rapido
     system("pause");
