@@ -13,8 +13,8 @@ char - string - bool - int - unsigned - double - unsigned   */
 #include <iostream>    // para poder usar funciones basicas de c++
 #include<string>       // para poder hacer cadenas -> string
 #include <math.h>      // para hacer la potecia -> funcion pow()
-#include<assert.h>     // para usar la funcion assert -> assertt()   TODAVIA NO LA USE :C
-#include<conio.h>      // para usar la funcion invertir cadena -> strrev()
+#include<assert.h>     // para usar la funcion assert -> assert()   
+//#include<conio.h>      // para usar la funcion invertir cadena -> strrev()    || no pude usarla
 //#include<cstring>    // hubiera sido necesaria para usar la funcion concatenar -> strcat()  ||  AL FINAL strcat() NO FUNCIONA SI AÑADO ESTA BIBLIOTECA
 
 int ascii(char letra)        //Funcion que recibe valores tipo char y devuelve valores tipo int
@@ -60,11 +60,12 @@ int main()
     std::cout << "Se pueden concatenar: " << cadena1 + cadena2 << ".\n";        //SE PODIAN CONCATENAR CON UNA SUMAAA
     std::string concatenacion = cadena1 + cadena2;
         
-    /*std::cout << "Se puede saber la cantidad de caracteres que ocupa una cadena: " << cadena1.length() << ".\n";
-    strrev(cadena1);
-    std::cout << "Se pueden invertir (por ejemplo, la primer cadena): " << strrev(cadena1); 
-    std::cout << ". Esto puede ser util para comprobar si un numero es capicua, o si una palabra es polindroma. \n";*/
-    
+    /*std::cout << "Se puede saber la cantidad de caracteres que ocupa una cadena: " << cadena1.length() << ".\n";                      No funcionó
+    strrev(cadena1);                                                                                                                      sospecha
+    std::cout << "Se pueden invertir (por ejemplo, la primer cadena): " << strrev(cadena1);                                   no funciona con datos tipo string
+    std::cout << ". Esto puede ser util para comprobar si un numero es capicua, o si una palabra es polindroma. \n";            sino con arrays de caracteres
+    */
+
     assert(concatenacion == "cadena!de-caracteres!");
     std::cout << "\n";
 
