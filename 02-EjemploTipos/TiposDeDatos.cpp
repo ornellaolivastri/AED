@@ -116,8 +116,8 @@ int main()
     std::cout << ". (No se estan mostrando los decimales).\n";
     std::cout << "Para efectuar correctamente esta operacion debemos usar el tipo de dato flotante double." << '\n';
     assert(suma == 7);
-    assert(resta == 3);                       //Tuve que ponerle 1 a la division y a la potencia porque tuve que hacer la operacion tambien en doubles 
-    assert(multiplicacion == 10);             //entonces iba a repetirse el nombre de la variable
+    assert(resta == 3);                       //Tuve que ponerle 1 a la division y a la potencia porque las use tambien en doubles
+    assert(multiplicacion == 10);             //entonces iba a repetirse el nombre de la variable, tenia que diferenciarlas
     assert(division1 == 2);
     assert(potencia1 == 0);
     std::cout << '\n';
