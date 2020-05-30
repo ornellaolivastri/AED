@@ -10,7 +10,7 @@ Por lo tanto, imponen restricciones sobre qué valores y operaciones pueden real
 char - string - bool - int - unsigned - double - unsigned   */
 
 //Bibliotecas
-#include <iostream>    // para poder usar funciones basicas de c++
+#include <iostream>    // para poder usar funciones basicas de c++ !
 #include<string>       // para poder hacer cadenas -> string
 #include <math.h>      // para hacer la potecia -> funcion pow()
 #include<assert.h>     // para usar la funcion assert -> assert()   
