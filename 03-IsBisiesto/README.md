@@ -46,5 +46,16 @@ a ϵ N -> resultado ϵ B . (N: conjunto de naturales | B: conjunto de booleanos)
 #### Definición para C++ de la función:
 ![](definicion%20de%20isBisiesto%20C++.PNG)
 
+#### Árbol de expresión asociado a la expresion de retorno de la función:
+Lexico utilizado:
+- r: mayor a 1582
+- s: divisible por 4
+- u: divisible por 100
+- w: divisible por 400
+- Como presenté dos formas de expresar la evaluación de la funcion, presentaré un gráfico para cada una.
+
+![](arbol.jpg)
+
+
 
 
