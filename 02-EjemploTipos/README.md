@@ -2,7 +2,7 @@
 ---
 ## TP 02-EjemploTipos
 ---
-### Etapa 2: Análisis del problema
+### Etapa 1: Análisis del problema
 #### Enunciado
  Escribir un programa que ejemplifique el uso de los tipos de datos basicos de C++ vistos en clase:
 - int - char - double - string - bool - unsigned
