@@ -43,6 +43,16 @@ a ϵ N -> resultado ϵ B . (N: conjunto de naturales | B: conjunto de booleanos)
 #### Definición matemática de la función:
 ![](definicion%20de%20funcion.jpg)
 
+#### Prototipo de la función en C++:
+bool isBisiesto(int a) { }
+
+#### Pruebas (con los resultados esperados):
+- isBisiesto(1581) == false
+- isBisiesto(1582) == false
+- isBisiesto(1996) == true
+- isBisiesto(1700) == false
+- isBisiesto(1600) == true
+
 #### Definición para C++ de la función:
 ![](definicion%20de%20isBisiesto%20C++.PNG)
 
