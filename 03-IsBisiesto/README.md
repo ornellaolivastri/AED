@@ -64,7 +64,9 @@ Lexico utilizado:
 - w: divisible por 400
 - Como presenté dos formas de expresar la evaluación de la funcion, presentaré un gráfico para cada una.
 
+
 ![](arbol.jpg)
+
 
 
 
