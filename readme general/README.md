@@ -12,17 +12,19 @@
 #### Hipotesis de trabajo
 1. 
 
+#### Modelo IPO (con su léxico): 
+
 ---
 ### Etapa 2: Diseño de la solucion
 Para comenzar a diseñar hay que tener en cuenta el objetivo del programa: ..... Para ello .....
 
-#### Modelo IPO: 
+
 
 #### Lógica de la funcion ....:
 1. 
 
 #### Léxico: 
-a ϵ N -> resultado ϵ B . (N: conjunto de naturales | B: conjunto de booleanos)
+aaa ϵ ZBN -> resultado ϵ B . (N: conjunto de naturales | B: conjunto de booleanos)
 
 #### Definición matemática de la función:
 
