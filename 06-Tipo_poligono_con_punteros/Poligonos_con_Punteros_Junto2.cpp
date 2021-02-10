@@ -1,7 +1,7 @@
 #include <iostream>
 #include<string>
 #include <math.h>
-#include "Poligonos_con_Punteros_Junto.h"
+#include "Poligonos_con_Punteros_Junto2.h"
 #include <fstream>
 
 Color mezcla(Color color1, Color color2) {

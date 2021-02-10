@@ -2,8 +2,7 @@
 #include <iostream> //lo necesito para el tipo uint8_t (y otras cosas)
 #include <string>
 
-/* El tipo de dato uint8_t sirve para las intensidades, ya que representa un numero natural
-   que solo puede almacenar numeros de 0 a 255 (o sea, lo que se pueda representar con 8 bits) */
+// Definicion del tipo color y variables globales --------------------------------------
 
 struct Color { uint8_t intensidadRed, intensidadGreen, intensidadBlue; };
 
@@ -19,7 +18,7 @@ const Color white{ 255,255,255 };
 const Color black{ 0,0,0 };
 
 
-// Prototipos ----------------------------------------------------
+// Prototipos del tipo color 
 
 Color mezcla(Color color1, Color color2);
 
@@ -34,14 +33,13 @@ void show_color(Color color_random);
 std::string get_color_for_svn(Color color_random);
 
 
-
-// Tipo coordinates: cada punto estará formado por dos coordenadas double: x e y   ------------
+// Definicion del tipo coordinates: ---------------------------------------------------
+// cada punto estará formado por dos coordenadas doubles (x e y) ----------------------
 
 struct coordinate { double x, y; };
 
-// revisar el tipo de x e y para svg
 
-// Prototipos ----------------------------------------------------
+// Prototipos del tipo coordinates: 
 
 bool IsIgual(coordinate a, coordinate b);
 
@@ -70,18 +68,7 @@ struct Polygon {
 };
 
 
-//Definicion del tipo lista de poligonos (con punteros) --------------------------------------
-
-struct PolygonsList {
-    Polygon* puntero_a_poligono_raiz = nullptr;
-    unsigned cantidad_poligonos = 0;
-};
-
-
-
-//PROTOTIPOS DE FUNCIONES
-
-//Del tipo poligono (con punteros)
+//Prototipos del tipo poligono (con punteros) 
 
 void inicializacion_de_Poligono(Polygon& poligono_random, Color color_a_agregar);
 
@@ -102,8 +89,15 @@ void remove_vertice(Polygon& poligono_random, unsigned numero_del_vertice_a_elim
 void add_vertice_al_final(Polygon& poligono_random, double x, double y);
 
 
+//Definicion del tipo lista de poligonos (con punteros) --------------------------------------
 
-//Del tipo lista de poligonos (con punteros) 
+struct PolygonsList {
+    Polygon* puntero_a_poligono_raiz = nullptr;
+    unsigned cantidad_poligonos = 0;
+};
+
+
+//Prototipos del tipo lista de poligonos (con punteros) 
 
 void add_poligono_al_final(PolygonsList& lista_random, Polygon& poligono_a_agregar);
 
@@ -117,9 +111,7 @@ Polygon* get_polygon(PolygonsList& RandomPolygonList, unsigned numero_del_poligo
 
 
 
-
-
-//Funciones para extraer ------------------------------------------------------
+//Prototipos/funciones para extraer datos ----------------------------------------------------
 
 void get_polygons_color_from_stream(std::istream& istr, Color& color);
 
@@ -133,7 +125,7 @@ bool get_polygon_from_stream(std::istream& istr, Polygon& polygon);
 
 
 
-//Funciones para introducir --------------------------------------------------
+//Prototipos/funciones para introducir datos --------------------------------------------------
 
 
 void give_polygons_color(std::ofstream& ostr, Color& color);

@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 #include <fstream>
-#include "Poligonos_con_Punteros_Junto.h"
+#include "Poligonos_con_Punteros_Junto2.h"
 
 int main() {
 
@@ -21,10 +21,6 @@ int main() {
     std::cout << "Tercer vertice:"; show_vertice(poligono1, 3);
 
     show_poligono(poligono1); std::cout << std::endl;
-
-    /*AQUI LA FUNCION CAMBIAR CUENTA COMO EL AÑADIDO DE OTRO VERTICE, PORQUE CAMBIA EL VALOR DEL ORIGINAL,
-    QUE ES EL QUE SE CREA AL INICIALIZAR LA FUNCION. ESE SIEMPRE VALE CERO Y YO LO CAMBIÉ */
-
 
     cambiar_datos_del_vertice(poligono1, 0, 300.9, 350.9);
     std::cout << "Ahora, el primer vertice es:"; show_vertice(poligono1, 0);
@@ -59,10 +55,6 @@ int main() {
 
     assert(AreNear(getPerimetro(poligono3), 449.093, 0.001));
 
-    std::cout << "------------------------------------------"; std::cout << std::endl;
-
-    //  7/02
-
     Polygon cuadrado1;
     inicializacion_de_Poligono(cuadrado1, magenta);
     cambiar_datos_del_vertice(cuadrado1, 0, 5, 5);
@@ -92,11 +84,11 @@ int main() {
     add_poligono_al_final(lista1, cuadrado3);
     show_polygons_list(lista1);
 
-    std::cout << "--------------------\n";
     PolygonsList lista3;
     add_poligono_al_final(lista3, cuadrado1);
     show_polygons_list(lista3);
-    std::cout << "--------------------\n";
+
+
 
     //Dibujo SVG -----------------------------------------------------------------------
 
@@ -104,7 +96,6 @@ int main() {
 
     dibujin << " <!DOCTYPE html> <html> <body><svg height = \"500\" width = \"500\">";
     dibujin << "<svg height = \"500\" width = \"500\"> ";
-
 
     dibujin << "<polygon points = \"" << show_vertice_para_svg(poligono1) << "\" style = \"fill:" << get_color_for_svn(poligono1.color) << "; stroke:black;stroke-width:1\"/>";
 
@@ -118,17 +109,14 @@ int main() {
 
     dibujin << "Sorry, you are an ass :C </svg> </body> </html>";
 
-    //-------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------
 
 
+    /*
 
-  // 08/02 
+    // Output to file -------------------------------------------------------------------------------------------
 
- 
-
-    // Output to file -----------------------------------------------------
-
-        std::ofstream flujo_salida("flujo_salida.txt"); //inicio del flujo de salida
+    std::ofstream flujo_salida("flujo_salida.txt"); //inicio del flujo de salida
 
     for (unsigned i = 0; i < lista1.cantidad_poligonos; i++) {
         give_polygon(flujo_salida,*(get_polygon ( lista1, i ))    );
@@ -136,23 +124,17 @@ int main() {
 
     flujo_salida.close();
 
-
+    */
 
     // Entry from file  --------------------------------------------------------------------------------------------
 
-//-----------------------------------------------------------------------------
-//Ifstream es un tipo de dato de extraccion de datos desde archivos (como cin pero no del teclado)
-//ifstream es i = in, f = file, stream = flujo
-//Poligono poligono[10] = esto es un arreglo basico, para el que no hay que agregar ninguna biblioteca <array>
-// escribir poligono[i] es como decir poligono.at(i)
-
- 
+    /*
     PolygonsList lista2;
     inicializacion_de_PolygonList(lista2, white);
 
     std::ifstream flujo_entrada("flujo_entrada.txt");    //inicio del flujo de entrada
 
-    /*
+   
     Color color_stream;
     
     get_polygons_color_from_stream(flujo_entrada, color_stream);
@@ -169,10 +151,9 @@ int main() {
     }
 
     get_vertex_from_stream(flujo_entrada, vertex_stream);
-    */
+    
 
-
-    /*
+    
     for (unsigned i = 0; get_polygon_from_stream(flujo_entrada, *(get_polygon(lista2, i))); i++) {
         lista2.cantidad_poligonos++;
         new poligono
@@ -181,10 +162,10 @@ int main() {
 
 
 
-/*
-//ESTO ES PARA CONFIRMAR QUE LO QUE EXTRAEMOS ES LO QUE QUEREMOS ---------------------
 
-    for (unsigned n = 0; n < lista2.cantidad_poligonos; n++) {
+    //ESTO ES PARA CONFIRMAR QUE LO QUE EXTRAEMOS ES LO QUE QUEREMOS ---------------------
+
+    /*   for (unsigned n = 0; n < lista2.cantidad_poligonos; n++) {
         std::cout << std::endl << "El color del poligono es :" << "(" 
             << (unsigned) (get_polygon(lista2, n) ) ->color.intensidadRed << ","
             << (unsigned) (get_polygon(lista2, n)) -> color.intensidadGreen << "," 
@@ -202,15 +183,14 @@ int main() {
 
     }
 
-    */
+   
 
     flujo_entrada.close();
   
 
-
-
-
-
+ */
+    
+    
 
 }
 
