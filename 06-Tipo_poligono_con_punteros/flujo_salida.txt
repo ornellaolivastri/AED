@@ -1,25 +1,12 @@
-Color: 255 255 0 
-Cantidad de vertices: 1
-Vertice: 45 45 
-*
 Color: 255 0 255 
-Cantidad de vertices: 4
-Vertice: 5 5 
+Cantidad de vertices: 3
 Vertice: 10 5 
 Vertice: 10 10 
 Vertice: 5 10 
 *
 Color: 255 255 0 
-Cantidad de vertices: 4
-Vertice: 25 25 
+Cantidad de vertices: 3
 Vertice: 30 25 
 Vertice: 30 30 
 Vertice: 25 30 
-*
-Color: 0 0 0 
-Cantidad de vertices: 4
-Vertice: 45 45 
-Vertice: 50 45 
-Vertice: 50 50 
-Vertice: 45 50 
 *
