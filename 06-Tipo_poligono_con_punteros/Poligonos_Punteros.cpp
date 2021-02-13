@@ -53,7 +53,7 @@ void show_color(Color color_random) {
         << (int)color_random.intensidadBlue << ")\n";
 };
 
-std::string get_color_for_svn(Color color_random) {
+std::string get_color_for_SVG(Color color_random) {
     //rgb(255,255,255)
 
     std::string color_for_svn;
@@ -88,13 +88,9 @@ double getDistanciaAlOrigen(coordinate a, coordinate origen) {
 }
 
 bool AreNear(double a, double b, double tolerancia) {
-    //             ? = entonces         : = sino
-    return a >= b ? (a - b) <= tolerancia      //si a es mayor o igual que b ? restar a - b y comprobar si la resta es menor a la tolerancia
-        : (b - a) <= tolerancia;     //                            : restar b - a y comprobar si la resta es menor a la tolerancia
-
-//Tolerancia= +- 0.001
-//AreNear devuelve true or false si la diferencia entre los dos double a y b supera la diferencia
+    return a >= b ? (a - b) <= tolerancia : (b - a) <= tolerancia;   
 }
+
 
 
 //Polygons ------------------------------------------------------------------------------------
@@ -103,7 +99,7 @@ void change_polygon_color(Polygon& poligono_random, Color color_a_agregar) {
     poligono_random.color = color_a_agregar;
 }
 
-std::string show_vertice_para_svg(Polygon& poligono_random) {
+std::string show_vertex_for_SVG(Polygon& poligono_random) {
 
     std::string vertices = "";
 
@@ -116,7 +112,7 @@ std::string show_vertice_para_svg(Polygon& poligono_random) {
     return vertices;
 }
 
-void show_vertice(Polygon& poligono_random, unsigned numero_del_vertice_a_imprimir) {
+void show_vertex(Polygon& poligono_random, unsigned numero_del_vertice_a_imprimir) {
     
     Vertex* selected_vertex_pointer = poligono_random.root_vertex_pointer;
     
@@ -127,7 +123,7 @@ void show_vertice(Polygon& poligono_random, unsigned numero_del_vertice_a_imprim
     std::cout << "(" << selected_vertex_pointer->vertex_coordinates.x << ", " << selected_vertex_pointer->vertex_coordinates.y << ") ";
 }
 
-void cambiar_datos_vertice(Polygon& poligono_random, unsigned numero_vertice_a_modificar, double x, double y) {
+void change_vertex_data(Polygon& poligono_random, unsigned numero_vertice_a_modificar, double x, double y) {
     Vertex* selected_vertex_pointer = poligono_random.root_vertex_pointer;
     for (unsigned i = 0; i < numero_vertice_a_modificar; i++) {
         selected_vertex_pointer = selected_vertex_pointer->next_vertex_pointer;
@@ -136,7 +132,7 @@ void cambiar_datos_vertice(Polygon& poligono_random, unsigned numero_vertice_a_m
     selected_vertex_pointer->vertex_coordinates.y = y;
 }
 
-void add_vertice_al_final(Polygon& poligono_random, double x, double y) {
+void add_end_vertex(Polygon& poligono_random, double x, double y) {
 
     Vertex* new_vertex_pointer = new Vertex; //devuelve la direccion de memoria del principio del espacio reservado
 
@@ -181,8 +177,6 @@ void add_poligono_al_final(PolygonsList & lista_random, Polygon & poligono_a_agr
         
     }
 
-
-
 Vertex* get_vertice(Polygon & poligono_random, unsigned numero_del_vertice_a_devolver) {
         Vertex* selected_vertex_pointer = poligono_random.root_vertex_pointer;
         for (unsigned i = 0; i < numero_del_vertice_a_devolver; i++) {
@@ -191,7 +185,7 @@ Vertex* get_vertice(Polygon & poligono_random, unsigned numero_del_vertice_a_dev
         return selected_vertex_pointer;
     }
 
-void remove_vertice(Polygon & poligono_random, unsigned numero_del_vertice_a_eliminar ){
+void remove_vertex(Polygon & poligono_random, unsigned numero_del_vertice_a_eliminar ){
         
         if (numero_del_vertice_a_eliminar == 0) {
             Vertex* vertice_a_borrar_ptr = poligono_random.root_vertex_pointer;
@@ -234,20 +228,29 @@ double getPerimetro(Polygon & poligono_random) {
     }
 
 
+
 //Polygon's Lists ------------------------------------------------------------------------------------
 
-void show_polygons_list(PolygonsList & RandomPolygonList) {
-        Polygon* selected_vertex_pointer = RandomPolygonList.puntero_a_poligono_raiz;
+void show_polygons_list(PolygonsList& RandomPolygonList) {
 
+    if (RandomPolygonList.cantidad_poligonos == 0) {
+        std::cout << "La lista esta vacia.\n";
+    }
+    else {
         std::cout << "La lista de poligonos es: \n";
 
+        Polygon* selected_vertex_pointer = RandomPolygonList.puntero_a_poligono_raiz;
+
         for (unsigned i = 0; i < RandomPolygonList.cantidad_poligonos; i++) {
-            show_poligono(*selected_vertex_pointer);
+            show_polygon(*selected_vertex_pointer);
             selected_vertex_pointer = selected_vertex_pointer->next_polygon_pointer;
         }
-    }
 
-void show_poligono(Polygon & poligono_random) {
+        std::cout << "\n";
+    }
+}
+
+void show_polygon(Polygon & poligono_random) {
 
         if (poligono_random.vertex_amount == 0) {
             std::cout << "El poligono esta vacio.\n";
@@ -258,7 +261,7 @@ void show_poligono(Polygon & poligono_random) {
             Vertex* selected_vertex_pointer = poligono_random.root_vertex_pointer;
 
              for (unsigned i = 0; i < poligono_random.vertex_amount; i++) {
-                show_vertice(poligono_random, i);
+                show_vertex(poligono_random, i);
                 selected_vertex_pointer = selected_vertex_pointer->next_vertex_pointer;
              }
         }     
@@ -304,20 +307,17 @@ unsigned get_polygons_amount_from_stream(std::istream & istr) {
     return amount; 
  }
 
-void get_vertex_from_stream(std::istream & istr, Polygon* poligono_random) {
-        
+void get_vertex_from_stream(std::istream & istr, Polygon* poligono_random) {  
     double x, y;
     istr >> x; 
     istr >> y;
-    add_vertice_al_final(*poligono_random, x, y);
-    //poligono_random->vertex_amount--;
+    add_end_vertex(*poligono_random, x, y);
 }
 
 bool get_separator_from_stream(std::istream & istr) {
         istr.clear();
         char written_caracter = 0;
         istr >> written_caracter;
-        //return ((istr) && (written_caracter == '*'));
         return !istr.eof();
     }
 
@@ -339,25 +339,17 @@ void get_polygon_from_stream(std::istream & istr, PolygonsList & lista_random) {
             
             get_vertex_from_stream (istr, new_polygon_pointer );
         }
-
- 
-        //return get_separator_from_stream(istr); // Por más que ya tenga la cantidad de vértices, 
-                                    // me sirve para saber si hay más
-
 }
 
 
 
 //Funciones para introducir a un archivo --------------------------------------------------
 
-
 void give_polygons_color(std::ofstream & ostr, Color & color) {
-
-
-        ostr << "Color: " << (unsigned)color.intensidadRed << " ";
-        ostr << (unsigned)color.intensidadGreen << " ";
-        ostr << (unsigned)color.intensidadBlue << " \n";
-    }
+    ostr << "Color: " << (unsigned)color.intensidadRed << " ";
+    ostr << (unsigned)color.intensidadGreen << " ";
+    ostr << (unsigned)color.intensidadBlue << " \n";
+}
 
 void give_polygons_amount(std::ofstream & ostr, unsigned& vertex_amount) {
         ostr << "Cantidad de vertices: " << vertex_amount << "\n";
@@ -381,5 +373,4 @@ void give_polygon(std::ofstream & ostr, Polygon & polygon) {
         }
 
         ostr << "*\n";
-
     }
