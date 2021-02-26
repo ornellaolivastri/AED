@@ -1,0 +1,6 @@
+﻿  Poligonos_vertices_continuos.cpp
+D:\proyectos\c++\Poligonos_vertices_continuos\Poligonos_vertices_continuos\Poligonos_vertices_continuos.cpp(107,20): warning C4018: '<': no coinciden signed/unsigned
+D:\proyectos\c++\Poligonos_vertices_continuos\Poligonos_vertices_continuos\Poligonos_vertices_continuos.cpp(112,31): warning C4018: '<': no coinciden signed/unsigned
+  Test_Poligonos_vertices_continuos.cpp
+  Generando código...
+  Poligonos_vertices_continuos.vcxproj -> D:\proyectos\c++\Poligonos_vertices_continuos\Debug\Poligonos_vertices_continuos.exe
