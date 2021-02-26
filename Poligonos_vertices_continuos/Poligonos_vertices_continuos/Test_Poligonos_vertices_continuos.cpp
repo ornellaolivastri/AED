@@ -40,5 +40,5 @@ int main() {
 
 	assert(AreNear(get_perimetro(poligono1_con_indice), 12.445075, 0.0001));
 
-	std::cout << "Todo salio bien :3" << std::endl;
+	std::cout << "Todo salio bien con los poligonos de vertices continuos:3 " << std::endl;
 }

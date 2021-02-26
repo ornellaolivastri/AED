@@ -1,6 +1,7 @@
 ﻿  Poligonos_vertices_continuos.cpp
-D:\proyectos\c++\Poligonos_vertices_continuos\Poligonos_vertices_continuos\Poligonos_vertices_continuos.cpp(107,20): warning C4018: '<': no coinciden signed/unsigned
-D:\proyectos\c++\Poligonos_vertices_continuos\Poligonos_vertices_continuos\Poligonos_vertices_continuos.cpp(112,31): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\oliva\Documents\proyectos\AED\Poligonos_vertices_continuos\Poligonos_vertices_continuos\Poligonos_vertices_continuos.cpp(107,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\oliva\Documents\proyectos\AED\Poligonos_vertices_continuos\Poligonos_vertices_continuos\Poligonos_vertices_continuos.cpp(112,31): warning C4018: '<': no coinciden signed/unsigned
   Test_Poligonos_vertices_continuos.cpp
   Generando código...
-  Poligonos_vertices_continuos.vcxproj -> D:\proyectos\c++\Poligonos_vertices_continuos\Debug\Poligonos_vertices_continuos.exe
+  LINK : no se encontró C:\Users\oliva\Documents\proyectos\AED\Poligonos_vertices_continuos\Debug\Poligonos_vertices_continuos.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  Poligonos_vertices_continuos.vcxproj -> C:\Users\oliva\Documents\proyectos\AED\Poligonos_vertices_continuos\Debug\Poligonos_vertices_continuos.exe
