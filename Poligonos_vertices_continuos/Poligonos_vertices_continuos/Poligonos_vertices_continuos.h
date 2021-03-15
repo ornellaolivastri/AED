@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream> //lo necesito para el tipo uint8_t
+#include <iostream> // lo necesito para el tipo uint8_t
 #include<array>
 
 /* El tipo de dato uint8_t sirve para las intensidades, ya que representa un numero natural

@@ -1,7 +1,7 @@
 #include <math.h>
 #include "Poligonos_vertices_continuos.h"
 
-// Definiciones de funciones del tipo color ---------------------------
+// Definiciones de funciones del tipo color  ---------------------------
 
 tipo_color mezcla(tipo_color color1, tipo_color color2) {
 	tipo_color color_nuevo;
