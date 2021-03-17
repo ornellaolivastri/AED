@@ -3,9 +3,10 @@
 #include <string>
 
 
+
 // Definicion del tipo color y variables globales --------------------------------------
 
-struct Color { uint8_t intensidadRed, intensidadGreen, intensidadBlue; };
+struct Color { uint8_t red, green, blue; };
 
 const Color red{ 255,0,0 };
 const Color green{ 0,255,0 };
@@ -34,20 +35,22 @@ std::string get_color_for_SVG(Color color_random);
 
 
 
+
 // Definicion del tipo coordinates: ---------------------------------------------------
 // cada punto estará formado por dos coordenadas de tipo double (x e y) ---------------
 
-struct coordinate { double x, y; };
+struct Coordinate { double x, y; };
 
 // Prototipos del tipo coordinates: 
 
-bool IsIgual(coordinate a, coordinate b);
+bool IsIgual(Coordinate a, Coordinate b);
 
-double getDistancia(coordinate a, coordinate b);
+double getDistancia(Coordinate a, Coordinate b);
 
-double getDistanciaAlOrigen(coordinate a, coordinate origen);
+double getDistanciaAlOrigen(Coordinate a, Coordinate origen);
 
 bool AreNear(double a, double b, double tolerancia);
+
 
 
 
@@ -55,7 +58,7 @@ bool AreNear(double a, double b, double tolerancia);
 
 struct Vertex {
     Vertex* next_vertex_pointer = nullptr;
-    coordinate vertex_coordinates{ 0,0 };
+    Coordinate vertex_coordinates{ 0,0 };
 };
 
 
@@ -65,7 +68,7 @@ struct Polygon {
     Vertex* root_vertex_pointer = nullptr;
     unsigned vertex_amount = 0;
     Color color = white;
-    Polygon* next_polygon_pointer = nullptr;
+   
 };
 
 //Prototipos del tipo poligono (con punteros) 
@@ -89,41 +92,70 @@ void remove_vertex(Polygon& poligono_random, unsigned numero_del_vertice_a_elimi
 void add_end_vertex(Polygon& poligono_random, double x, double y);
 
 
-//Definicion del tipo lista (de poligonos con punteros) --------------------------------------
+//Definicion del tipo lista de poligonos (con punteros) --------------------------------------
+
+struct PolygonNode {
+    Polygon polygon;
+    PolygonNode* next_node;
+};
 
 struct PolygonsList {
-    Polygon* puntero_a_poligono_raiz = nullptr;
-    unsigned cantidad_poligonos = 0;
+    PolygonNode* root_polygon_node_pointer = nullptr;
+    unsigned polygons_amount = 0;
 };
 
 
 //Prototipos del tipo lista de poligonos (con punteros) 
 
-void add_poligono_al_final(PolygonsList& lista_random, Polygon& poligono_a_agregar);
+void add_poligono_al_final(PolygonsList& lista_random, const Polygon& poligono_a_agregar);
 
-void show_polygons_list(PolygonsList& RandomPolygonList);
+void show_polygons_list(PolygonsList RandomPolygonList);
 
-Polygon* get_polygon(PolygonsList& RandomPolygonList, unsigned numero_del_poligono_a_devolver);
+PolygonNode* get_polygon(PolygonsList& RandomPolygonList, unsigned numero_del_poligono_a_devolver);
 
 
 
 // FLUJOS -----------------------------------------------------------------------------------
 
 
-//Prototipos/funciones para extraer datos ----------------------------------------------------
+// Funciones necesarias para extraer poligonos desde un archivo ---------------------------------------------
 
-void get_polygons_color_from_stream(std::istream& istr, Color& color);
+Color get_polygons_color_from_file(std::istream& istr);
 
-unsigned get_polygons_amount_from_stream(std::istream& istr);
+Vertex* get_vertex_from_string(std::string vertex);
 
-void get_vertex_from_stream(std::istream& istr, Polygon* poligono_random);
+void add_vertex(Vertex* vertex_list, Vertex* new_vertex);
 
-bool get_separator_from_stream(std::istream& istr);
+Vertex* get_vertex_list_from_file(std::ifstream& istr, unsigned& vertex_amount);
 
-void get_polygon_from_stream(std::istream& istr, PolygonsList& lista_random);
+Polygon get_next_polygon_from_file(std::ifstream& file);
+
+PolygonsList get_polygons_list_from_file(std::ifstream& file);
 
 
-//Prototipos/funciones para introducir datos --------------------------------------------------
+
+//Funciones necesarias para filtrar poligonos 
+
+// double getDistancia(Coordinate a, Coordinate b)    
+
+// Vertex* get_vertice(Polygon& poligono_random, unsigned numero_del_vertice_a_devolver)   
+
+// double getPerimetro(Polygon& poligono_random) 
+
+/* La funcion filtrar poligonos debe declarar una lista filtrada y :
+1 - Leer un poligono de la lista principal.
+2 - Calcularle el perimetro.
+3 - Si es mayor o igual al limite, agregarlo a la lista filtrada.
+4 - Repetir 1 hasta que llegue al ultimo poligono.
+*/
+
+PolygonsList filtrar_lista_poligonos(double perimetro_minimo, const PolygonsList& lista);
+
+
+
+
+
+// Funciones necesarias para introducir poligonos a un archivo ---------------------------------------
 
 void give_polygons_color(std::ofstream& ostr, Color& color);
 
@@ -132,4 +164,6 @@ void give_polygons_amount(std::ofstream& ostr, unsigned& vertex_amount);
 void give_vertex(std::ofstream& ostr, Vertex& vertex);
 
 void give_polygon(std::ofstream& ostr, Polygon& polygon);
+
+void escribirEnArchivo(PolygonsList lista, std::ofstream& outFile);
 

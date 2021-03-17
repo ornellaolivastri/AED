@@ -1,0 +1,35 @@
+polygonstart
+255 255 0
+2 3
+4 5
+39 5
+polygonend
+polygonstart
+22 3 99
+3 6
+6 5
+8 8
+10 11
+polygonend
+polygonstart
+25 55 0
+2 5
+5 9
+10 20
+14 23
+polygonend
+polygonstart
+225 222 212
+1 1
+200 200
+300 300
+polygonend
+polygonstart
+1 1 1
+1 1
+0 9
+20 10
+99 99
+999 999
+9999 9999
+polygonend

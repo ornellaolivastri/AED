@@ -1,0 +1,18 @@
+Color: 225 222 212 
+Cantidad de vertices: 3
+Vertice: 1 1 
+Vertice: 200 200 
+Vertice: 300 300 
+Perimetro: 845.7
+*
+Color: 1 1 1 
+Cantidad de vertices: 6
+Vertice: 1 1 
+Vertice: 0 9 
+Vertice: 20 10 
+Vertice: 99 99 
+Vertice: 999 999 
+Vertice: 9999 9999 
+Perimetro: 28287.1
+*
+holi :3 

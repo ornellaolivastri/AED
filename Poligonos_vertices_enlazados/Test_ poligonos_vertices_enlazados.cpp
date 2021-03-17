@@ -1,19 +1,20 @@
-/*
+
 #include <iostream>
 #include <string>
 #include <cassert>
 #include <fstream>
-#include "Poligonos_punteros.h"
+#include "Poligonos_vertices_enlazados.h"
 
 
 int main() {
-
+    
+/*
     Polygon poligono1;
     show_polygon(poligono1);
     change_polygon_color(poligono1, cyan);
-    assert(poligono1.color.intensidadRed == 0);
-    assert(poligono1.color.intensidadGreen == 255);
-    assert(poligono1.color.intensidadBlue == 255);
+    assert(poligono1.color.red == 0);
+    assert(poligono1.color.green == 255);
+    assert(poligono1.color.blue == 255);
 
     add_end_vertex(poligono1, 5.5, 450.6);
     assert(poligono1.root_vertex_pointer->vertex_coordinates.x == 5.5);
@@ -71,52 +72,21 @@ int main() {
     PolygonsList lista1;
     show_polygons_list(lista1);
     add_poligono_al_final(lista1, cuadrado1);
-    assert(lista1.puntero_a_poligono_raiz->root_vertex_pointer->vertex_coordinates.x == 10);
-    assert(lista1.puntero_a_poligono_raiz->root_vertex_pointer->vertex_coordinates.y == 5);
-    assert(lista1.puntero_a_poligono_raiz->root_vertex_pointer->next_vertex_pointer->vertex_coordinates.x == 10);
-    assert(lista1.puntero_a_poligono_raiz->root_vertex_pointer->next_vertex_pointer->vertex_coordinates.y == 10);
-    assert(lista1.puntero_a_poligono_raiz->root_vertex_pointer->next_vertex_pointer->next_vertex_pointer->vertex_coordinates.x == 5);
-    assert(lista1.puntero_a_poligono_raiz->root_vertex_pointer->next_vertex_pointer->next_vertex_pointer->vertex_coordinates.y == 10);
+    assert(lista1.root_polygon_node_pointer->root_vertex_pointer->vertex_coordinates.x == 10);
+    assert(lista1.root_polygon_node_pointer->root_vertex_pointer->vertex_coordinates.y == 5);
+    assert(lista1.root_polygon_node_pointer->root_vertex_pointer->next_vertex_pointer->vertex_coordinates.x == 10);
+    assert(lista1.root_polygon_node_pointer->root_vertex_pointer->next_vertex_pointer->vertex_coordinates.y == 10);
+    assert(lista1.root_polygon_node_pointer->root_vertex_pointer->next_vertex_pointer->next_vertex_pointer->vertex_coordinates.x == 5);
+    assert(lista1.root_polygon_node_pointer->root_vertex_pointer->next_vertex_pointer->next_vertex_pointer->vertex_coordinates.y == 10);
 
     add_poligono_al_final(lista1, cuadrado2);
     show_polygons_list(lista1);
 
 
 
-    //  Streams ------------------------------------------------------------------------------------------------
 
 
-    // Entry from file  -----------------------------------------------------------------
-
-    PolygonsList lista2;
-
-    std::fstream flujo_entrada("flujo_entrada.txt", std::ios::in);    //inicio del flujo de entrada
-
-    while (!flujo_entrada.eof()) { get_polygon_from_stream(flujo_entrada, lista2); }
-
-    show_polygons_list(lista2);
-
-    flujo_entrada.close();
-
-
-
-    // Output to file ----------------------------------------------------------------
-
-    std::ofstream flujo_salida("flujo_salida.txt"); //inicio del flujo de salida
-
-    for (unsigned i = 0; i < lista1.cantidad_poligonos; i++) {
-        give_polygon (flujo_salida,*(get_polygon ( lista1, i )) );
-    }
-
-    flujo_salida.close();
-
-
-
-
-
-
-
-    //Dibujo SVG -----------------------------------------------------------------------------------------
+    // Dibujo SVG -----------------------------------------------------------------------------------------
 
     std::ofstream dibujin("dibujo_de_poligonos_SVG.html");
 
@@ -137,48 +107,25 @@ int main() {
     dibujin << "Sorry, something stopped working :C:C </svg> </body> </html>";
 
     //------------------------------------------------------------------------------------------------------
-
-
-
-
-}
-
 */
 
-// Created by Orne on 24/02/2021.
-//  Streams --------------------------------------------------------------------------------
 
-#include <iostream>
-#include <string>
-#include <cassert>
-#include <fstream>
-#include "Poligonos_vertices_enlazados.h"
+// Streams -----------------------------------------------------------------------------------------------
 
+std::ifstream flujo_entrada("lista_de_poligonos_para_filtrar.txt");
+std::ofstream flujo_salida("lista_de_poligonos_filtrada.txt");
 
-int main() {
+PolygonsList polygons_from_file = get_polygons_list_from_file(flujo_entrada);
+PolygonsList filtered_polygon_list = filtrar_lista_poligonos(100.5, polygons_from_file);
 
-    // Entry from file  -----------------------------------------------------------------
-
-    std::fstream flujo_entrada("lista_de_poilgonos_para_filtrar.txt");    //inicio del flujo de entrada: abro txt
-
-    std::string color_string;
-    getline(flujo_entrada, color_string);     //la funcion getline tiene dos versiones; en ésta el caracter delimitante es new line  
-    assert(color_string == "Color");          //no me funcionó el assert poniendo dos puntos luego de "Color"
-
-    std::string color_RGB;
-    getline(flujo_entrada, color_RGB);        //cada vez que se usa getline se lee la siguiente linea a la leida anteriormente 
-
-//no voy a poder pasar todo como string porque entonces no voy a poder filtrar los poligonos por perimetro
-
-    flujo_entrada.close();
+std::cout << "La lista de poligonos sin filtrar es: " << std::endl;
+show_polygons_list(polygons_from_file);
+std::cout << std::endl << "La lista de poligonos filtrada es: ";
+show_polygons_list(filtered_polygon_list);
+escribirEnArchivo(filtered_polygon_list, flujo_salida);
 
 
 
-    // Output to file ----------------------------------------------------------------
-
-    std::ofstream flujo_salida("flujo_salida.txt"); //inicio del flujo de salida
-
-
-    std::cout << "todo salio bien :3" << std::endl;
+std::cout << "todo termino bien n.n \n";
 
 }
